@@ -13,7 +13,7 @@ import react from '@vitejs/plugin-react';
 // Replace 'my-app' with your actual repo name
 export default defineConfig({
   plugins: [react()],
-  base: '/eventscalendar/', 
+  base: '/evob/', 
   build: {
     outDir: 'dist',
   },

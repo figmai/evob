@@ -156,6 +156,14 @@
   border-radius: 12px;
 }
 
+
+.day-table__date {
+  font-weight: 400;
+  font-size: 14px;
+  color: grey;
+  margin-left: 0.5rem;
+}
+
 .day-table__table {
   width: 100%;
   border-collapse: collapse;
@@ -174,8 +182,8 @@
   border-bottom: 2px solid var(--border);
   white-space: nowrap;
   position: sticky;
-  top: var(--sticky-offset-thead);
-  z-index: 998;
+  top: var(--sticky-offset-thead, 178px);
+  z-index: 4;
 }
 
 .day-table__table td {
@@ -192,6 +200,7 @@
   text-transform: none;
   letter-spacing: normal;
   white-space: nowrap;
+  z-index: 5;
 }
 
 .day-table__day-name {

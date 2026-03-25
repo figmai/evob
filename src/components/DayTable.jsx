@@ -4,6 +4,9 @@ import CollapsibleRow from './CollapsibleRow'
 
 const COLUMNS = Array.from({ length: 9 }, (_, i) => `Label ${i + 1}`)
 
+const titleCase = (str) =>
+  str.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase())
+
 const MOCK_PRODUCTS = [
   { name: 'Product A', data: [120, 85, 43, 67, 92, 31, 78, 56, 104] },
   { name: 'Product B', data: [45, 112, 89, 23, 67, 145, 34, 91, 58] },
@@ -11,8 +14,8 @@ const MOCK_PRODUCTS = [
 ]
 
 const DayTable = forwardRef(function DayTable({ date, selectedDay }, ref) {
-  const dayName = format(date, 'EEEE')
-  const formattedDate = format(date, 'MMM d')
+  const dayName = titleCase(format(date, 'EEEE'))
+  const formattedDate = titleCase(format(date, 'MMM d'))
   const selectedDayFormatted = selectedDay ? format(selectedDay, 'dd/MM/yyyy') : ''
 
   return (
@@ -21,7 +24,7 @@ const DayTable = forwardRef(function DayTable({ date, selectedDay }, ref) {
         <thead>
           <tr>
             <th className="day-table__date-col">
-              {`${dayName} `.toLowerCase().replace(/\b\w/g, c => c.toUpperCase())} <span className="day-table__date">{formattedDate}</span>
+              <span className="day-table__day-name">{dayName}</span> <span className="day-table__date">{formattedDate}</span>
             </th>
             {COLUMNS.map((label) => (
               <th key={label}>{label}</th>
