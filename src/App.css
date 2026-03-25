@@ -156,27 +156,6 @@
   border-radius: 12px;
 }
 
-.day-table__title {
-  margin: 0;
-  padding: 12px 16px;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text-h);
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: var(--sticky-offset, 178px);
-  z-index: 5;
-  border-radius: 12px 12px 0 0;
-  transition: box-shadow 0.2s;
-}
-
-.day-table__date {
-  font-weight: 400;
-  color: var(--text);
-  margin-left: 6px;
-}
-
 .day-table__table {
   width: 100%;
   border-collapse: collapse;
@@ -195,14 +174,37 @@
   border-bottom: 2px solid var(--border);
   white-space: nowrap;
   position: sticky;
-  top: var(--sticky-offset-thead, 220px);
-  z-index: 4;
+  top: var(--sticky-offset-thead);
+  z-index: 998;
 }
 
 .day-table__table td {
   padding: 8px 12px;
   border-bottom: 1px solid var(--border);
   color: var(--text-h);
+}
+
+.day-table__table th.day-table__date-col {
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+  text-transform: none;
+  letter-spacing: normal;
+  white-space: nowrap;
+}
+
+.day-table__day-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: white;
+}
+
+.day-table__table .day-table__date {
+  font-weight: 400;
+  font-size: 14px;
+  color: grey;
+  margin-left: 0.5rem;
 }
 
 /* Collapsible Row */

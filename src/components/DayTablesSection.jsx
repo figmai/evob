@@ -2,7 +2,7 @@ import { useCallback } from 'react'
 import { format } from 'date-fns'
 import DayTable from './DayTable'
 
-function DayTablesSection({ weekDays, tableRefsMap }) {
+function DayTablesSection({ weekDays, tableRefsMap, selectedDay }) {
   const setRef = useCallback(
     (date, el) => {
       const key = format(date, 'yyyy-MM-dd')
@@ -21,6 +21,7 @@ function DayTablesSection({ weekDays, tableRefsMap }) {
         <DayTable
           key={date.toISOString()}
           date={date}
+          selectedDay={selectedDay}
           ref={(el) => setRef(date, el)}
         />
       ))}

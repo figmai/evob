@@ -10,18 +10,19 @@ const MOCK_PRODUCTS = [
   { name: 'Product C', data: [78, 34, 156, 45, 88, 12, 99, 63, 41] },
 ]
 
-const DayTable = forwardRef(function DayTable({ date }, ref) {
+const DayTable = forwardRef(function DayTable({ date, selectedDay }, ref) {
   const dayName = format(date, 'EEEE')
   const formattedDate = format(date, 'MMM d')
+  const selectedDayFormatted = selectedDay ? format(selectedDay, 'dd/MM/yyyy') : ''
 
   return (
     <div className="day-table" ref={ref}>
-      <h3 className="day-table__title">
-        {dayName} <span className="day-table__date">{formattedDate}</span>
-      </h3>
       <table className="day-table__table">
         <thead>
           <tr>
+            <th className="day-table__date-col">
+              {`${dayName} `.toLowerCase().replace(/\b\w/g, c => c.toUpperCase())} <span className="day-table__date">{formattedDate}</span>
+            </th>
             {COLUMNS.map((label) => (
               <th key={label}>{label}</th>
             ))}
@@ -29,7 +30,7 @@ const DayTable = forwardRef(function DayTable({ date }, ref) {
         </thead>
         <tbody>
           {MOCK_PRODUCTS.map((product) => (
-            <CollapsibleRow key={product.name} product={product} />
+            <CollapsibleRow key={product.name} product={product} selectedDayFormatted={selectedDayFormatted} />
           ))}
         </tbody>
       </table>

@@ -36,11 +36,9 @@ function App() {
     const headerHeight = header.offsetHeight
     const weekCardsHeight = weekCards.offsetHeight
     const totalOffset = headerHeight + weekCardsHeight
-    const titleEl = app.querySelector('.day-table__title')
-    const titleHeight = titleEl ? titleEl.offsetHeight : 43
     app.style.setProperty('--header-height', `${headerHeight}px`)
     app.style.setProperty('--sticky-offset', `${totalOffset}px`)
-    app.style.setProperty('--sticky-offset-thead', `${totalOffset + titleHeight}px`)
+    app.style.setProperty('--sticky-offset-thead', `${totalOffset}px`)
     stickyOffset.current = totalOffset
   }, [])
 
@@ -132,7 +130,7 @@ function App() {
         onSelectDay={handleSelectDay}
       />
       {selectedDay && (
-        <DayTablesSection weekDays={weekDays} tableRefsMap={tableRefsMap} />
+        <DayTablesSection weekDays={weekDays} tableRefsMap={tableRefsMap} selectedDay={selectedDay} />
       )}
     </div>
   )

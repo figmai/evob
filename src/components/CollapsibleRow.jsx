@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-function CollapsibleRow({ product }) {
+function CollapsibleRow({ product, selectedDayFormatted }) {
   const [expanded, setExpanded] = useState(false)
 
   return (
@@ -18,13 +18,14 @@ function CollapsibleRow({ product }) {
           }
         }}
       >
-        <td colSpan={9}>
+        <td colSpan={10}>
           <span className="collapsible-row__icon">{expanded ? '▾' : '▸'}</span>
           {product.name}
         </td>
       </tr>
       {expanded && (
         <tr className="collapsible-row__data">
+          <td className="day-table__date-col">{selectedDayFormatted}</td>
           {product.data.map((value, i) => (
             <td key={i}>{value}</td>
           ))}
